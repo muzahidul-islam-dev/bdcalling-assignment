@@ -1,22 +1,22 @@
 import React from 'react'
 
-function Product({products}) {
-const {} = products;
-return <div className="card bg-base-100 w-96 shadow-sm">
+function Product({product, handleAddToCart}) {
+  const {name, description, image} = product;
+return <div className="card bg-gray-900 w-96 shadow-sm">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
+      src={image}
+      alt="Shoes" className='h-52 object-cover w-full' />
   </figure>
   <div className="card-body">
     <h2 className="card-title">
-      Card Title
+      {name}
       <div className="badge badge-secondary">NEW</div>
     </h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div>
+    <p>{description}</p>
+    <div className="card-actions justify-end mt-5">
+      <div className="btn btn-primary" onClick={() => handleAddToCart(product)}>Add To Cart</div>
+      <div className="btn btn-success">Buy Now</div>
     </div>
   </div>
 </div>
